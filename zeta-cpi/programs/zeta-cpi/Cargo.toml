@@ -16,8 +16,8 @@ default = []
 devnet = []
 
 [dependencies]
-anchor-lang = "0.24.2"
-anchor-spl = "0.24.2"
+anchor-lang = "0.25.0"
+anchor-spl = "0.25.0"
 bytemuck = "1.4.0"
 rust_decimal = { git = "https://github.com/zetamarkets/rust-decimal.git", features = ["maths"] }
 cpi-interface = { path = "../../../cpi-interface", version = "0.1.0" }

@@ -74,6 +74,7 @@ pub struct Greeks {
 impl Greeks {
     pub fn get_mark_prices_slice(&self, expiry_index: usize) -> &[u64] {
         let head = expiry_index * NUM_PRODUCTS_PER_SERIES;
+        #[allow(unaligned_references)]
         &self.mark_prices[head..head + NUM_PRODUCTS_PER_SERIES]
     }
 
@@ -84,6 +85,7 @@ impl Greeks {
 
     pub fn get_volatility_slice(&self, expiry_index: usize) -> &[u64] {
         let head = expiry_index * VOLATILITY_POINTS;
+        #[allow(unaligned_references)]
         &self.volatility[head..head + VOLATILITY_POINTS]
     }
 

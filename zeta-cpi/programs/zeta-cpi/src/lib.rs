@@ -134,10 +134,10 @@ pub mod zeta_cpi {
         let expiry_series = zeta_group.expiry_series[expiry_index];
         {
             // The unix timestamp that the products are tradeable.
-            msg!("Active timestamp {}", expiry_series.active_ts);
+            msg!("Active timestamp {}", { expiry_series.active_ts });
 
             // The unix timestamp that the products expire.
-            msg!("Expiry timestamp {}", expiry_series.expiry_ts);
+            msg!("Expiry timestamp {}", { expiry_series.expiry_ts });
 
             let status = zeta_group.expiry_series[expiry_index].status()?;
 
@@ -193,7 +193,7 @@ pub mod zeta_cpi {
             "Market index = {}, Mark price = {}, Delta = {}, Vega = {:?}, IV = {:?}",
             market_index,
             market_mark_prices,
-            market_product_greeks.delta,
+            { market_product_greeks.delta },
             Decimal::from(market_product_greeks.vega),
             Decimal::from(market_product_greeks.volatility)
         ));
