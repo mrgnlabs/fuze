@@ -9,7 +9,8 @@ pub struct InitializeMarginAccount<'info> {
     #[account(mut)]
     /// CHECK:
     pub margin_account: AccountInfo<'info>,
-    pub authority: Signer<'info>,
+    /// CHECK:
+    pub authority: AccountInfo<'info>,
     #[account(mut)]
     pub payer: Signer<'info>,
     /// CHECK:
