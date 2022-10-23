@@ -25,7 +25,8 @@ pub struct InitializeSpreadAccount<'info> {
     #[account(mut)]
     /// CHECK:
     pub spread_account: UncheckedAccount<'info>,
-    pub authority: Signer<'info>,
+    /// CHECK:
+    pub authority: AccountInfo<'info>,
     #[account(mut)]
     pub payer: Signer<'info>,
     /// CHECK:
@@ -51,7 +52,8 @@ pub struct Deposit<'info> {
     #[account(mut)]
     /// CHECK:
     pub socialized_loss_account: AccountInfo<'info>,
-    pub authority: Signer<'info>,
+    /// CHECK:
+    pub authority: AccountInfo<'info>,
     pub token_program: Program<'info, Token>,
     /// CHECK:
     pub state: AccountInfo<'info>,
@@ -75,7 +77,8 @@ pub struct Withdraw<'info> {
     /// CHECK:
     pub user_token_account: AccountInfo<'info>,
     pub token_program: Program<'info, Token>,
-    pub authority: Signer<'info>,
+    /// CHECK:
+    pub authority: AccountInfo<'info>,
     #[account(mut)]
     /// CHECK:
     pub greeks: AccountInfo<'info>,
@@ -101,7 +104,8 @@ pub struct InitializeOpenOrders<'info> {
     #[account(mut)]
     /// CHECK:
     pub margin_account: AccountInfo<'info>,
-    pub authority: Signer<'info>,
+    /// CHECK:
+    pub authority: AccountInfo<'info>,
     #[account(mut)]
     pub payer: Signer<'info>,
     /// CHECK:
@@ -170,7 +174,8 @@ pub struct PlaceOrder<'info> {
     #[account(mut)]
     /// CHECK:
     pub margin_account: AccountInfo<'info>,
-    pub authority: Signer<'info>,
+    /// CHECK:
+    pub authority: AccountInfo<'info>,
     /// CHECK:
     pub dex_program: AccountInfo<'info>,
     pub token_program: Program<'info, Token>,
@@ -229,7 +234,8 @@ pub struct CancelAccounts<'info> {
 
 #[derive(Accounts, Clone)]
 pub struct CancelOrder<'info> {
-    pub authority: Signer<'info>,
+    /// CHECK:
+    pub authority: AccountInfo<'info>,
     pub cancel_accounts: CancelAccounts<'info>,
 }
 
@@ -267,7 +273,8 @@ pub struct PositionMovement<'info> {
     #[account(mut)]
     /// CHECK:
     pub spread_account: AccountInfo<'info>,
-    pub authority: Signer<'info>,
+    /// CHECK:
+    pub authority: AccountInfo<'info>,
     /// CHECK:
     pub greeks: AccountInfo<'info>,
     /// CHECK:
@@ -284,5 +291,6 @@ pub struct TransferExcessSpreadBalance<'info> {
     #[account(mut)]
     /// CHECK:
     pub spread_account: AccountInfo<'info>,
-    pub authority: Signer<'info>,
+    /// CHECK:
+    pub authority: AccountInfo<'info>,
 }
